@@ -58,7 +58,7 @@ const Login = (props) => {
 
   useEffect(() => {
     const identifier = setTimeout(() => {
-      console.log('Checking form vaildity!');
+      console.log('Checking form validity!');
       setFormIsValid(
         emailIsValid && passwordIsValid);
     }, 500);
@@ -88,10 +88,13 @@ const Login = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     if (formIsValid) {
+      console.log('Form is valid')
       authCtx.onLogin(emailState.value, passwordState.value);
     } else if (!emailIsValid) {
+      console.log('Invalid Email')
       emailInputRef.current.focus();
     } else {
+      console.log('Invalid Password')
        passwordInputRef.current.focus();
     }
   };
